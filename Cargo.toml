@@ -1,9 +1,10 @@
 [package]
-name = "utils"
+name = "nishikigii_utils"
 license = "MIT"
 version = "0.0.0"
 edition = "2021"
 authors = ["andei.buite", "nishikigii"]
 description = "useful structs functions for rustaceans"
+repository = "https://github.com/Nishikigii/utils.rs.git"
 
 [dependencies]
