@@ -1,7 +1,7 @@
 [package]
 name = "nishikigii_utils"
 license = "MIT"
-version = "0.0.0"
+version = "0.0.1"
 edition = "2021"
 authors = ["andei.buite", "nishikigii"]
 description = "useful structs functions for rustaceans"
