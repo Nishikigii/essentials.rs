@@ -15,7 +15,7 @@ pub enum Language
 
 /// stlyes of english
 #[derive(Debug, PartialEq, Eq)]
-pub enum English 
+pub enum English
 {
     British, American, Both
 }

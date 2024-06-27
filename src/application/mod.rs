@@ -1,5 +1,3 @@
-use std::fmt::{Arguments, Error};
-
 #[cfg(test)]
 mod tests
 {
@@ -18,7 +16,7 @@ mod tests
         type Settings = &'a str;
         type Error = &'a str;
     
-        fn start( settings: Self::Settings )-> Result<Box<Self>, Error> 
+        fn start( settings: Self::Settings )-> Result<Box<Self>, Self::Error> 
         {
             println!("app start with settings: {settings}");
             Ok( Box::new( App {} ) )
@@ -47,6 +45,6 @@ pub trait Binary<'a>: Application<'a>
     type Error: Sized;
 
     /// start the application with arguments
-    fn start( settings: Self::Settings )-> Result<Box<Self>, Error>;
+    fn start( settings: Self::Settings )-> Result<Box<Self>, Self::Error>;
 
 }
