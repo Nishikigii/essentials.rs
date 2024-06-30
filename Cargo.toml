@@ -6,7 +6,7 @@ edition = "2021"
 authors = ["andei_buite", "nishikigii"]
 description = "essential utils for rustaceans"
 repository = "https://github.com/Nishikigii/utils.rs.git"
-keywords = ["nishikigii", "tool", "util", "useful", "wrapper", "marco"]
+keywords = ["nishikigii", "tool", "util"]
 
 [dependencies]
 tokio = { version = "1.21.2", features = ["full"] }
