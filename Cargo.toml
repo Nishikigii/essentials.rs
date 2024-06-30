@@ -5,7 +5,7 @@ version = "0.1.0"
 edition = "2021"
 authors = ["andei_buite", "nishikigii"]
 description = "essential utils for rustaceans"
-repository = "https://github.com/Nishikigii/utils.rs.git"
+repository = "https://github.com/Nishikigii/essentials.rs"
 keywords = ["nishikigii", "tool", "util"]
 
 [dependencies]

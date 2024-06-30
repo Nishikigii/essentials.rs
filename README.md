@@ -11,7 +11,7 @@ let our crate be a dependency in your project
 [dependencies]
 essentials = "0.1.0"
 ````
-view [github](https://github.com/Nishikigii/utils.rs.git) to download the source code and official builds.
+view [github](https://github.com/Nishikigii/essentials.rs) to download the source code and official builds.
 
 ## Features
 enable all features by specify `features` field as `full`.  
