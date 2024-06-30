@@ -1,10 +1,22 @@
 [package]
-name = "nishikigii_utils"
+name = "essentials"
 license = "MIT"
-version = "0.0.1"
+version = "0.1.0"
 edition = "2021"
-authors = ["andei.buite", "nishikigii"]
-description = "useful structs functions for rustaceans"
+authors = ["andei_buite", "nishikigii"]
+description = "essential utils for rustaceans"
 repository = "https://github.com/Nishikigii/utils.rs.git"
+keywords = ["nishikigii", "tool", "util", "useful", "wrapper", "marco"]
 
 [dependencies]
+tokio = { version = "1.21.2", features = ["full"] }
+
+
+[features]
+default = ["wrapper", "marco"]
+# useful structs and functions
+wrapper = []
+# marco for done complex and repetitive actions quikly
+marco = []
+# application api design standard
+application = ["wrapper", "marco"]

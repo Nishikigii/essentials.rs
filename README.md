@@ -1,11 +1,30 @@
-# <center>Utils.rs</center>
+# <center>essentials</center>
 <center>useful structs functions for rustaceans</center>
 
 
-## usage
-> this repository is now published to [crates.io](https:://www.crates.io/), you can join it into your own porject as a dependency.  
+## Usage
+let our crate be a dependency in your project
+> essentials crate currently unstable version, 
+> interfaces may be changed in anytime.  
+> think twice if you intend it into your important projects!  
 ```toml
 [dependencies]
-nishikigii_utils = "*"
+essentials = "0.1.0"
 ````
+view [github](https://github.com/Nishikigii/utils.rs.git) to download the source code and official builds.
 
+## Features
+enable all features by specify `features` field as `full`.  
+```toml
+essentials = { version = "*", features = ["full"] }
+```
+
+### wrapper
+> main feature for essentials, it provides many useful structs, functions and traits.     
+> it enabled by default but could be applied it with following line.
+```toml
+essentials = { version = "*", features = ["wrapper"] }
+```
+
+### marco
+### application

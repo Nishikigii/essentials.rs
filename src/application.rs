@@ -1,3 +1,20 @@
+/// application
+pub trait Application<'a>
+{
+    /// application identifier
+    const IDENTIFIER: &'a str;
+}
+
+/// executable application
+pub trait Binary<'a>: Application<'a> 
+{
+    type Settings;
+    type Error: Sized;
+
+    /// start the application with arguments
+    fn start( settings: Self::Settings )-> Result<Box<Self>, Self::Error>;
+}
+
 #[cfg(test)]
 mod tests
 {
@@ -28,23 +45,5 @@ mod tests
     {
         println!("{:?}", App::start("-test").unwrap())
     }
-
-}
-
-/// application
-pub trait Application<'a>
-{
-    /// application identifier
-    const IDENTIFIER: &'a str;
-}
-
-/// executable application
-pub trait Binary<'a>: Application<'a> 
-{
-    type Settings;
-    type Error: Sized;
-
-    /// start the application with arguments
-    fn start( settings: Self::Settings )-> Result<Box<Self>, Self::Error>;
 
 }

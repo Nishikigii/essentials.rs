@@ -2,30 +2,6 @@ use std::fmt::{Debug, Display};
 
 pub mod lang;
 
-#[cfg(test)]
-mod tests
-{
-
-    use super::Reason;
-
-    #[test]
-    fn create_reason()
-    {
-        let instance = Reason::Failure("some reason");
-        let expect = Reason::Failure("some reason");
-        assert_eq!(instance, expect);
-    }
-
-    #[test]
-    fn compare_reason()
-    {
-        let instance = Reason::Failure("some reason");
-        let expect_fail = Reason::Failure("other reason");
-        let expect_sucs: Reason<&str> = Reason::Success;
-        assert!( !instance.eq(&expect_fail)  && !instance.eq(&expect_sucs))
-    }
-}
-
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum Reason<T>
 {
@@ -33,21 +9,26 @@ pub enum Reason<T>
     Failure(T)
 }
 
-
-
-impl<T: PartialEq> Reason<T> 
+impl<T> Reason<T> 
 {
-    pub fn is_failure( &self )-> bool
+    pub fn on_success( &self, action: impl Fn() )-> &Self
     {
-        if *self == Self::Success { false } else { true }
+        if let Self::Success = self
+        {
+            action();
+        }
+        return self;
     }
 
-    pub fn is_success( &self )-> bool
+    pub fn on_failure( &self, action: impl Fn(&T) )-> &Self
     {
-        if *self == Self::Success { true } else { false }
+        if let Self::Failure(reason) = self
+        {
+            action(reason);
+        }
+        return self;
     }
 }
-
 
 impl<T> Display for Reason<T> where T: Debug
 {
@@ -59,4 +40,37 @@ impl<T> Display for Reason<T> where T: Debug
             Self::Failure(reason) => write!(f, "Failure[{reason:?}]")
         }
     }
+}
+
+#[cfg(test)]
+mod reason_tests
+{
+
+    use super::Reason;
+
+    #[test]
+    fn assert_reason()
+    {
+        let reason = Reason::Failure("some reason");
+        reason.on_success(|| println!("success"));
+        reason.on_failure(|reason| println!("failure: {reason:?}"));
+    }
+
+}
+
+
+/// path to a data source
+pub trait Path 
+{
+
+}
+
+/// data source
+pub enum Source 
+{
+    /// Local( path )
+    Local(String),
+
+    /// Network( url )
+    Network()
 }
