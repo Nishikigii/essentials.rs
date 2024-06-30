@@ -9,7 +9,7 @@ repository = "https://github.com/Nishikigii/utils.rs.git"
 keywords = ["nishikigii", "tool", "util"]
 
 [dependencies]
-tokio = { version = "1.21.2", features = ["full"] }
+tokio = { version = "1.21.2", optional = true }
 
 
 [features]

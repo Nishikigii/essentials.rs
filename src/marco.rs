@@ -1,4 +1,4 @@
-macro_rules! str
+macro_rules! string
 {
     ($s:expr)=> 
     {
@@ -13,6 +13,6 @@ mod tests
     #[test]
     fn create_string()
     {
-        assert_eq!(str!("hello"), String::from("hello"));
+        assert_eq!(string!("hello"), String::from("hello"));
     }
 }

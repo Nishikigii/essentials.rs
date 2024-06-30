@@ -2,6 +2,22 @@ use std::fmt::{Debug, Display};
 
 pub mod lang;
 
+/// success or reason-known failure
+/// T => reason type
+/// 
+/// # Example
+/// ```rust
+/// use essentials::wrapper::Reason;
+/// use essentials::wrapper::Reason::Failure;
+/// 
+/// fn action()-> Reason<&'static str> { Failure("some reason") }
+/// fn main()
+/// {
+///     let result = action();
+///     result.on_success(|| println!("success"));
+///     result.on_failure(|reason| println!("failure: {reason:?}"));
+/// }
+/// ```
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum Reason<T>
 {
@@ -11,6 +27,7 @@ pub enum Reason<T>
 
 impl<T> Reason<T> 
 {
+    /// run action if success
     pub fn on_success( &self, action: impl Fn() )-> &Self
     {
         if let Self::Success = self
@@ -20,6 +37,7 @@ impl<T> Reason<T>
         return self;
     }
 
+    /// run action if failure
     pub fn on_failure( &self, action: impl Fn(&T) )-> &Self
     {
         if let Self::Failure(reason) = self
@@ -42,6 +60,7 @@ impl<T> Display for Reason<T> where T: Debug
     }
 }
 
+
 #[cfg(test)]
 mod reason_tests
 {
@@ -56,21 +75,4 @@ mod reason_tests
         reason.on_failure(|reason| println!("failure: {reason:?}"));
     }
 
-}
-
-
-/// path to a data source
-pub trait Path 
-{
-
-}
-
-/// data source
-pub enum Source 
-{
-    /// Local( path )
-    Local(String),
-
-    /// Network( url )
-    Network()
 }
