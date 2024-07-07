@@ -1,6 +1,6 @@
 pub use self::Architecture::*;
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug, Clone, PartialEq)]
 pub enum Architecture 
 {
     Unknown,

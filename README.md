@@ -9,7 +9,7 @@ let our crate be a dependency in your project
 > think twice if you intend it into your important projects!  
 ```toml
 [dependencies]
-essentials = "0.2.1"
+essentials = "0.2.2"
 ````
 view [github](https://github.com/Nishikigii/essentials.rs) to download the source code and official builds.
 
