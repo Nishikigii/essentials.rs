@@ -1,5 +1,6 @@
 pub use self::Architecture::*;
 
+#[derive(Debug, PartialEq)]
 pub enum Architecture 
 {
     Unknown,
@@ -8,4 +9,7 @@ pub enum Architecture
     AMD64,
     X86,
     X64,
+
+    /// Others( name )
+    Others(String)
 }
