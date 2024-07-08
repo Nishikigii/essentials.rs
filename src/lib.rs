@@ -4,5 +4,5 @@ pub mod wrapper;
 #[cfg(feature = "marco")]
 pub mod marco;
 
-// #[cfg(feature = "application")]
+#[cfg(feature = "application")]
 pub mod application;
