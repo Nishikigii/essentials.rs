@@ -7,6 +7,15 @@ pub trait Ver
     fn version( &self )-> &Version;
 }
 
+/// document your implementation edition for your structs or traits
+/// # Example
+///     see Edition implement for Version
+pub trait Edition 
+{
+    const EDITION: &'static Version;
+}
+
+
 #[derive(Debug, Clone, PartialEq, PartialOrd)]
 pub struct Version
 {
@@ -48,4 +57,22 @@ impl<'a> Version
     {
         Version { major, minor, patch }
     }
+}
+
+#[macro_export]
+macro_rules! ver
+{
+    ($major:expr, $minor:expr, $patch:expr) => 
+    {
+        Version { major: $major, minor: $minor, patch: $patch }
+    };
+    () =>
+    {
+        Version { major: 0, minor: 0, patch: 0 }
+    };
+}
+
+impl Edition for Version
+{
+    const EDITION: &'static Version = &ver!(0,0,0);
 }
