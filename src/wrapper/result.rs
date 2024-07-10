@@ -17,12 +17,4 @@ macro_rules! unwrap
             Err(_) => $default
         }
     };
-    ($result:expr)=>
-    {
-        match $result
-        {
-            Ok(value) => {value},
-            Err(err) => panic!("Error: {:?}", err)
-        }
-    };
 }

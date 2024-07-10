@@ -11,12 +11,9 @@ keywords = ["nishikigii", "tool", "util"]
 [dependencies]
 tokio = { version = "1.21.2", optional = true }
 
-
 [features]
 default = ["wrapper", "marco"]
 # useful structs and functions
 wrapper = []
 # marco for done complex and repetitive actions quikly
 marco = []
-# application api design standard
-application = ["wrapper", "marco"]
