@@ -1,10 +1,10 @@
 use crate::unwrap;
-use super::Wrap;
 
 pub trait Ver
 {
     fn version( &self )-> &Version;
 }
+
 
 /// document your implementation edition for your structs or traits
 /// # Example
@@ -23,13 +23,9 @@ pub struct Version
     pub patch: usize,
 }
 
+
 impl<'a> Version
 {
-    /// wrap instance with a version number.
-    pub fn wrap<I>( instance: &'a I, version: &str )-> Wrap<I,Version> where I: Clone
-    {
-        Wrap::new( instance.clone(), Self::parse(version) )
-    }
 
     /// parse version from string
     /// # Example
