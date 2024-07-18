@@ -3,5 +3,4 @@ pub mod arch;
 pub mod reason;
 pub mod result;
 pub mod version;
-pub mod unit;
 pub mod warn;
