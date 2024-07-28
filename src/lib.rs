@@ -1,5 +1,8 @@
-#[cfg(feature = "wrapper")]
-pub mod wrapper;
+#[cfg(feature = "struct")]
+pub mod wrap;
 
-#[cfg(feature = "marco")]
-pub mod marco;
+#[cfg(feature = "shortcut")]
+pub mod short;
+
+#[cfg(feature = "traits")]
+pub mod std;

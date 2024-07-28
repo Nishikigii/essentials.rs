@@ -9,11 +9,11 @@ repository = "https://github.com/Nishikigii/essentials.rs"
 keywords = ["nishikigii", "tool", "util"]
 
 [dependencies]
-tokio = { version = "1.21.2", optional = true }
+# tokio = { version = "1.21.2", optional = true }
 
 [features]
-default = ["wrapper", "marco"]
-# useful structs and functions
-wrapper = []
-# marco for done complex and repetitive actions quikly
-marco = []
+default = ["traits", "struct", "shortcut", "io"]
+traits = []
+struct = ["traits"]
+shortcut = ["traits"]
+io = ["traits", "struct", "shortcut"]
