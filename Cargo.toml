@@ -17,3 +17,7 @@ struct = ["traits"]
 shortcut = ["traits"]
 io = ["traits", "struct", "shortcut"]
 full = ["traits", "struct", "shortcut", "io"]
+
+[lib]
+name = "essentials"
+crate-type = ["rlib"]

@@ -6,10 +6,11 @@ pub use self::Reason::*;
 /// 
 /// # Example
 /// ```rust
-/// use essentials::wrapper::Reason;
-/// use essentials::wrapper::Reason::Failure;
+/// fn action()-> Reason<&'static str> 
+/// { 
+///     return Failure("some reason");
+/// }
 /// 
-/// fn action()-> Reason<&'static str> { Failure("some reason") }
 /// fn main()
 /// {
 ///     let result = action();
